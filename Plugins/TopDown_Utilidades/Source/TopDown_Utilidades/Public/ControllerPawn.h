@@ -58,6 +58,8 @@ protected:
 
 	void Zoom(const FInputActionValue& Value);
 
+	void EdgeSroll();
+
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
