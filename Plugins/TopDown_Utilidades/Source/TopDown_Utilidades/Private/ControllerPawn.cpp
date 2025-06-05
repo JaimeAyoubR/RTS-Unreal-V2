@@ -113,7 +113,10 @@ void AControllerPawn::EdgeSroll()
 void AControllerPawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	//UE_LOG(LogTemp, Display, TEXT("puta vergaaaaaaaaaaaaaaaaaa"));
 	EdgeSroll();
+	
 }
 
 // Called to bind functionality to input

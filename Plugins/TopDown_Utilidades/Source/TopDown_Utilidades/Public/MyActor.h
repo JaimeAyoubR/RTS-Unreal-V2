@@ -4,16 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "asdssd.generated.h"
+#include "MyActor.generated.h"
 
 UCLASS()
-class TOPDOWN_UTILIDADES_API Aasdssd : public AActor
+class TOPDOWN_UTILIDADES_API AMyActor : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	Aasdssd();
+	AMyActor();
 
 protected:
 	// Called when the game starts or when spawned

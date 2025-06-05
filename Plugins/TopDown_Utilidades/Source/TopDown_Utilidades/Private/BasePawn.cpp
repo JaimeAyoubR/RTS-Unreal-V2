@@ -78,7 +78,7 @@ void ABasePawn::Tick(float DeltaTime)
 	//UE_LOG(LogTemp, Warning, TEXT("Actor Location: %s"), *GetActorLocation().ToString());
 	//UE_LOG(LogTemp, Warning, TEXT("Mesh Relative Location: %s"), *SkeletMesh->GetRelativeLocation().ToString());
 	Move();
-	//UE_LOG(LogTemp, Display, TEXT("3"));
+	UE_LOG(LogTemp, Display, TEXT("4"));
 
 }
 

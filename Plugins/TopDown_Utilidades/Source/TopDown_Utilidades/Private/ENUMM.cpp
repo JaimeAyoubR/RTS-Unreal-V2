@@ -1,12 +1,12 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "dasdasdasdas.h"
+#include "ENUMM.h"
 
-dasdasdasdas::dasdasdasdas()
+ENUMM::ENUMM()
 {
 }
 
-dasdasdasdas::~dasdasdasdas()
+ENUMM::~ENUMM()
 {
 }

@@ -7,9 +7,9 @@
 /**
  * 
  */
-class TOPDOWN_UTILIDADES_API dasdasdasdas
+class TOPDOWN_UTILIDADES_API ENUMMMM
 {
 public:
-	dasdasdasdas();
-	~dasdasdasdas();
+	ENUMMMM();
+	~ENUMMMM();
 };

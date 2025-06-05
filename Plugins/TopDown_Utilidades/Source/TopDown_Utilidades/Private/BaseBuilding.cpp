@@ -6,6 +6,8 @@
 #include "Components/BoxComponent.h"
 #include "Components/Button.h"
 #include "Misc/MapErrors.h"
+#include "EnhancedInputComponent.h"
+#include "InputActionValue.h"
 
 // Sets default values
 ABaseBuilding::ABaseBuilding()
@@ -23,7 +25,7 @@ ABaseBuilding::ABaseBuilding()
 	// BoxComponent->SetCollisionProfileName(UCollisionProfile::BlockAll_ProfileName);
 	//
 	// BoxComponent->SetupAttachment(RootComponent);
-	
+
 
 	//Crete Indicator
 	SelectIndicator = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("SelectIndicator"));
@@ -47,4 +49,31 @@ void ABaseBuilding::Tick(float DeltaTime)
 void ABaseBuilding::SelectActor_Implementation(const bool select)
 {
 	SelectIndicator->SetHiddenInGame(!select);
+}
+
+void ABaseBuilding::CheckPlace()
+{
+	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
+	if (PlayerController != nullptr)
+	{
+		EnableInput(PlayerController);
+		UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(
+			PlayerController->InputComponent);
+		if (EnhancedInputComponent != nullptr)
+		{
+			EnhancedInputComponent->BindAction(PlaceAction, ETriggerEvent::Completed, this,
+			                                   &ABaseBuilding::PLaceBilding);
+		}
+	}
+	GetWorld()->GetTimerManager().SetTimer(PlacementTimerHandle,this,&ABaseBuilding::CheckPlace,0.1f,true);
+	
+}
+
+void ABaseBuilding::PLaceBilding(const FInputActionValue& Value)
+{
+	GetWorld()->GetTimerManager().ClearTimer(PlacementTimerHandle);
+}
+
+void ABaseBuilding::CancelBuild(const FInputActionValue& Value)
+{
 }
