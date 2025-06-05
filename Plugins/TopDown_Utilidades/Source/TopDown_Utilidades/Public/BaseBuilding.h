@@ -36,6 +36,15 @@ public:
 
 	UPROPERTY()
 	FTimerHandle PlacementTimerHandle;
+
+	UPROPERTY()
+	FName RequiredTag = "CanPlace"; //Si tiene este tag, se puede poner el edificio
+
+	UPROPERTY()
+	bool bCanPlaceBuilding = false;
+
+	UPROPERTY()
+	FVector BuildingLocation = FVector(500.0f,500.0f,500.0f);
 	
 protected:
 	// Called when the game starts or when spawned
@@ -48,6 +57,7 @@ public:
 	void SelectActor_Implementation(const bool select) override;
 
 	//Modo para construir
+	UFUNCTION(BlueprintCallable,Category="Building")
 	void EnablePlacingMode();
 
 	//Checar si si se puede colocar el edificio
